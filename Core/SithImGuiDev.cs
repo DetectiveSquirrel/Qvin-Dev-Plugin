@@ -22,7 +22,7 @@ namespace SithImGuiDev.Core
 {
     public class SithImGuiDev : BaseSettingsPlugin<DevSettings>
     {
-        private static ImGuiVector2 _renderDebugwindowSize = new ImGuiVector2(784, API.GameController.Window.GetWindowRectangle().Height-20);
+        private static ImGuiVector2 _renderDebugwindowSize = new ImGuiVector2(784, API.GameController.Window.GetWindowRectangle().Height-129);
         private static ImGuiVector2 _renderDebugwindowPos = new ImGuiVector2(593, 0);
         private static readonly ImGuiVector2 RenderDebugnextWindowPos = new ImGuiVector2(_renderDebugwindowSize.X + _renderDebugwindowPos.X, _renderDebugwindowSize.Y + _renderDebugwindowPos.Y);
         public static SithImGuiDev Instance;
@@ -73,7 +73,7 @@ namespace SithImGuiDev.Core
                 foreach (var rectangleF in _rectForDebug) Graphics.DrawFrame(rectangleF, 2, _clr);
                 ImGui.SetNextWindowPos(RenderDebugnextWindowPos, Condition.Appearing, new ImGuiVector2(1, 1));
                 ImGui.SetNextWindowSize(_renderDebugwindowSize, Condition.Appearing);
-                ImGui.BeginWindow("DebugTree", WindowFlags.NoCollapse);
+                ImGui.BeginWindow("DebugTree");
                 if (ImGui.Button("Clear##base")) _rectForDebug.Clear();
                 ImGui.SameLine();
                 ImGui.Checkbox("F1 for debug hover", ref _enableDebugHover);
